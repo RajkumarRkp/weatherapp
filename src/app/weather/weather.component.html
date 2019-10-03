@@ -1,0 +1,36 @@
+<div  >
+    
+        <h1 class="text-center text-info font-weight-bold">WeatherApp</h1>
+        <div class="align">
+        <label >Enter city</label>
+        <input type="text" [(ngModel)]="city" name="city">
+        
+        <button type="button" class="btn btn-primary" (click)="weatherResult()">go</button>
+        </div>
+        <div class="align">
+            <header>
+                <h1>{{cityName}}</h1>
+            <h2>{{country}}</h2>
+            </header>
+            
+                <img *ngIf="icon" src='https://openweathermap.org/img/w/{{icon}}.png' alt="img for weather condition">
+                <main>
+                    <h5 class="text-uppercase text-info"> {{description}}  </h5>
+                    <h2 *ngIf="selectedValue=='metric'"> {{temperature}} &#8451;</h2>
+                    <h2 *ngIf="selectedValue=='imperial'"> {{temperature}} &#8457;</h2>
+                </main>
+            
+        </div>
+<div *ngIf="city.toUpperCase()==cityName.toUpperCase()" class="align">
+<select placeholder="Change Unit" [(ngModel)]="selectedValue" name="unit" (click)=weatherResult()>
+        <option value="metric">Celsius</option>
+        <option value="imperial">Fahrenheit</option>
+</select>
+
+</div>
+
+    
+    
+  
+    </div>
+    
